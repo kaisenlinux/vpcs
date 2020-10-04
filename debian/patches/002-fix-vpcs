@@ -1,0 +1,24 @@
+Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
+
+--- vpcs-0.6.2.orig/src/vpcs.c
++++ vpcs-0.6.2/src/vpcs.c
+@@ -56,6 +56,8 @@ const char *ver = "0.6.2";
+ /* track the binary */
+ static const char *ident = "$Id$";
+ 
++pcs vpc[MAX_NUM_PTHS];
++
+ int pcid = 0;  /* current vpc id */
+ int devtype = 0;
+ int lport = 20000;
+--- vpcs-0.6.2.orig/src/vpcs.h
++++ vpcs-0.6.2/src/vpcs.h
+@@ -126,7 +126,7 @@ struct echoctl {
+ 	int bgcolor;
+ };
+ 
+-pcs vpc[MAX_NUM_PTHS];
++extern pcs vpc[MAX_NUM_PTHS];
+ 
+ #define delay_ms(s) usleep(s * 1000)
+ 

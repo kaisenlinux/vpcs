@@ -1,0 +1,52 @@
+Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
+
+--- /dev/null
++++ vpcs-0.6.2/src/Makefile
+@@ -0,0 +1,47 @@
++RM=rm -f
++CC=gcc $(CCOPT)
++OSTYPE=Linux
++CPUTYPE=i386
++OPT=-O2
++HVOPT=-DHV
++PREFIX=/usr
++
++CFLAGS=-D$(OSTYPE) -D$(CPUTYPE) $(OPT) $(HVOPT) -Wall -I. -DTAP
++LDFLAGS=-lpthread -lutil -s -static
++OBJS=vpcs.o \
++	daemon.o \
++	readline.o \
++	packets.o \
++	utils.o \
++	queue.o \
++	command.o \
++	dev.o \
++	dhcp.o \
++	command6.o \
++	packets6.o \
++	ip.o \
++	tcp.o \
++	inet6.o \
++	dns.o \
++	remote.o \
++	help.o \
++	dump.o \
++	relay.o \
++	hv.o
++	
++all: vpcs
++
++vpcs: $(OBJS)
++	$(CC) $(OBJS) -o vpcs $(LDFLAGS) 
++
++.c.o: keys.h vpcs.h packets.h dhcp.h
++	$(CC) $(INCLUDE_PATH) $(CFLAGS) -c $<
++
++install: vpcs
++	 install -Dm755 vpcs $(DESTDIR)$(PREFIX)/bin/vpcs
++
++uninstall:
++	rm $(DESTDIR)$(PREFIX)/bin/vpcs
++
++clean:
++	$(RM) *.o vpcs
