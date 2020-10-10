@@ -2,3 +2,6 @@
 
 %:
 	dh $@ --sourcedirectory=src
+
+override_dh_auto_install:
+	dh_install src/vpcs usr/bin

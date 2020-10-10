@@ -1,3 +1,12 @@
+vpcs (0.6.2-1kaisen2) kaisen-packages; urgency=medium
+
+  * Add manpage and docs on package
+  * Update 000-update-makefile-automated-vpcs
+  * Add dh_auto_install on debian/rules
+  * Remove shlibs
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>  Sat, 10 Oct 2020 22:15:23 +0200
+
 vpcs (0.6.2-1kaisen1) kaisen-packages; urgency=medium
 
   * First packaging for Kaisen Linux

@@ -1,7 +1,7 @@
 RM=rm -f
 CC=gcc $(CCOPT)
 OSTYPE=Linux
-CPUTYPE=i386
+CPUTYPE=amd64
 OPT=-O2
 HVOPT=-DHV
 PREFIX=/usr
@@ -36,12 +36,6 @@ vpcs: $(OBJS)
 
 .c.o: keys.h vpcs.h packets.h dhcp.h
 	$(CC) $(INCLUDE_PATH) $(CFLAGS) -c $<
-
-install: vpcs
-	 install -Dm755 vpcs $(DESTDIR)$(PREFIX)/bin/vpcs
-
-uninstall:
-	rm $(DESTDIR)$(PREFIX)/bin/vpcs
 
 clean:
 	$(RM) *.o vpcs

@@ -2,11 +2,11 @@ Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
 
 --- /dev/null
 +++ vpcs-0.6.2/src/Makefile
-@@ -0,0 +1,47 @@
+@@ -0,0 +1,41 @@
 +RM=rm -f
 +CC=gcc $(CCOPT)
 +OSTYPE=Linux
-+CPUTYPE=i386
++CPUTYPE=amd64
 +OPT=-O2
 +HVOPT=-DHV
 +PREFIX=/usr
@@ -41,12 +41,6 @@ Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
 +
 +.c.o: keys.h vpcs.h packets.h dhcp.h
 +	$(CC) $(INCLUDE_PATH) $(CFLAGS) -c $<
-+
-+install: vpcs
-+	 install -Dm755 vpcs $(DESTDIR)$(PREFIX)/bin/vpcs
-+
-+uninstall:
-+	rm $(DESTDIR)$(PREFIX)/bin/vpcs
 +
 +clean:
 +	$(RM) *.o vpcs
