@@ -42,7 +42,7 @@ char *getkv(char *str)
 	
 	if (str != NULL) {
 		memset(buf, 0, sizeof(buf));
-		strncpy(buf, str, strlen(str));
+		memcpy(buf, str, strlen(str));
 		p = strtok(buf, " \t");
 	} else 
 		p = strtok(NULL, " \t");
@@ -171,6 +171,16 @@ int arg2int(const char* arg, int min, int max, int defval)
 
 void esc_prn(const char *fmt, ...)
 {
+	va_list ap;
+	char tmp[4096];
+
+	va_start(ap, fmt);
+	vsprintf(tmp, fmt, ap);
+	esc_fprn(stdout, "%s", tmp);
+	va_end(ap);
+}
+void esc_fprn(FILE *f, const char *fmt, ...)
+{
 	char *buf;
 	char *tmp;
 	char *p;
@@ -215,7 +225,7 @@ void esc_prn(const char *fmt, ...)
 	if (p)
 		strcat(buf, p);
 
-	printf("%s", buf);
+	fprintf(f, "%s", buf);
 	free(tmp);
 	free(buf);
 }

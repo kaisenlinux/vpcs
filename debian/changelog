@@ -1,3 +1,10 @@
+vpcs (0.8.1-1kaisen1) kaisen-packages; urgency=medium
+
+  * Update at 0.8.1
+  * Update compat to 13
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>  Sat, 05 Dec 2020 03:07:06 +0200
+
 vpcs (0.6.2-1kaisen2) kaisen-packages; urgency=medium
 
   * Add manpage and docs on package

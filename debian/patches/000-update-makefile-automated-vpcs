@@ -1,18 +1,24 @@
 Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
 
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: 2020-12-05
+
 --- /dev/null
-+++ vpcs-0.6.2/src/Makefile
++++ vpcs-0.8.1/src/Makefile
 @@ -0,0 +1,41 @@
 +RM=rm -f
 +CC=gcc $(CCOPT)
 +OSTYPE=Linux
-+CPUTYPE=amd64
-+OPT=-O2
++CPUTYPE:=$(shell uname -m)
 +HVOPT=-DHV
-+PREFIX=/usr
 +
-+CFLAGS=-D$(OSTYPE) -D$(CPUTYPE) $(OPT) $(HVOPT) -Wall -I. -DTAP
-+LDFLAGS=-lpthread -lutil -s -static
++CFLAGS=-D$(OSTYPE) -D$(CPUTYPE) $(HVOPT) -Wall -DTAP
++LDFLAGS=-lpthread -lutil
 +OBJS=vpcs.o \
 +	daemon.o \
 +	readline.o \
@@ -32,7 +38,9 @@ Author: Kevin Chevreuil - Kaisen <kaisen@kaisen-linux.org>
 +	help.o \
 +	dump.o \
 +	relay.o \
-+	hv.o
++	hv.o \
++	frag.o \
++	frag6.o
 +	
 +all: vpcs
 +

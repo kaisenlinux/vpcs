@@ -1,13 +1,11 @@
 RM=rm -f
 CC=gcc $(CCOPT)
 OSTYPE=Linux
-CPUTYPE=amd64
-OPT=-O2
+CPUTYPE:=$(shell uname -m)
 HVOPT=-DHV
-PREFIX=/usr
 
-CFLAGS=-D$(OSTYPE) -D$(CPUTYPE) $(OPT) $(HVOPT) -Wall -I. -DTAP
-LDFLAGS=-lpthread -lutil -s -static
+CFLAGS=-D$(OSTYPE) -D$(CPUTYPE) $(HVOPT) -Wall -DTAP
+LDFLAGS=-lpthread -lutil
 OBJS=vpcs.o \
 	daemon.o \
 	readline.o \
@@ -27,7 +25,9 @@ OBJS=vpcs.o \
 	help.o \
 	dump.o \
 	relay.o \
-	hv.o
+	hv.o \
+	frag.o \
+	frag6.o
 	
 all: vpcs
 
