@@ -1,3 +1,5 @@
-README.md
-readme.txt
+COPYING
+INSTALL
+*.md
+*.txt
 man/vpcs.pdf

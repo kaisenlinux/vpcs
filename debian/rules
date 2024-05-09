@@ -1,7 +1,10 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --sourcedirectory=src
+	dh $@
+
+override_dh_auto_build:
+	make -f $(CURDIR)/src/Makefile.linux -C $(CURDIR)/src
 
 override_dh_auto_install:
-	dh_install src/vpcs usr/bin
+	install -p -m 0755 $(CURDIR)/src/vpcs $(CURDIR)/debian/vpcs/usr/bin

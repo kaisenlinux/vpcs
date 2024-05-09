@@ -1,3 +1,12 @@
+vpcs (0.8.3-1kaisen) kaisen-packages; urgency=medium
+
+  * Import the 0.8.3 release
+  * Drop the quilt patch
+  * Drop the debian/compat file
+  * Recomplete packaging
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>  Fri, 10 May 2024 01:11:42 +0200
+
 vpcs (0.8.2-1kaisen1) kaisen-packages; urgency=medium
 
   * Update at 0.8.2

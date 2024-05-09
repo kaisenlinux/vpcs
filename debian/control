@@ -2,8 +2,9 @@ Source: vpcs
 Priority: optional
 Section: net
 Maintainer: Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>
-Build-Depends: debhelper
+Build-Depends: debhelper-compat (=13)
 Standards-Version: 4.6.0
+Homepage: https://github.com/GNS3/vpcs
 Vcs-Git: https://gitlab.com/kaisenlinux/packages/vpcs.git
 Vcs-Browser: https://gitlab.com/kaisenlinux/packages/vpcs
 
